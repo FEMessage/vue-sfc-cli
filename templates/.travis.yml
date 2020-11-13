@@ -1,6 +1,6 @@
 branches:
   only:
-    - master
+    - main
 language: node_js
 node_js:
 - lts/*
@@ -20,7 +20,11 @@ deploy:
   github-token: $GITHUB_TOKEN
   skip-cleanup: true
   keep-history: true
+  on:
+    branch: main
 - provider: npm
   email: levy9527@qq.com # use your own email
   api_key: $NPM_TOKEN
   skip-cleanup: true
+  on:
+    branch: main

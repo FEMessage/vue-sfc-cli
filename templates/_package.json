@@ -23,6 +23,7 @@
   "browser": {
     "./sfc": "src/{{componentName}}.vue"
   },
+  "types": "src/{{componentName}}.d.ts",
   "scripts": {
     "dev": "vue-styleguidist server",
     "test": "jest --verbose",

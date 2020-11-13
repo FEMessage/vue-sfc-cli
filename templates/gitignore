@@ -17,3 +17,5 @@ docs/*.ttf
 *.njsproj
 *.sln
 .env
+
+package-lock.json
