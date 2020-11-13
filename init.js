@@ -76,7 +76,8 @@ if (!isUpgrade()) {
     patterns: {
       gitignore: '.gitignore',
       '_package.json': 'package.json',
-      'src/component.vue': `src/${componentName}.vue`
+      'src/component.vue': `src/${componentName}.vue`,
+      'src/component.d.ts': `src/${componentName}.d.ts`
     }
   })
 

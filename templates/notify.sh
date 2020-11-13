@@ -11,9 +11,9 @@ ORG_NAME=$(echo "$TRAVIS_REPO_SLUG" | cut -d '/' -f 1)
 REPO_NAME=$(echo "$TRAVIS_REPO_SLUG" | cut -d '/' -f 2)
 
 echo "2/5: pushing commit and tag to github"
-# 该命令很可能报错，但不影响实际进行，因而不能简单地在脚本开头 set -e 
+# 该命令很可能报错，但不影响实际进行，因而不能简单地在脚本开头 set -e
 git remote add github https://$GITHUB_TOKEN@github.com/$TRAVIS_REPO_SLUG.git > /dev/null 2>&1
-git push github HEAD:master --follow-tags
+git push github HEAD:main --follow-tags
 
 echo "3/5: generating github release notes"
 GREN_GITHUB_TOKEN=$GITHUB_TOKEN yarn release
