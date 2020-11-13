@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.13.0](https://github.com/FEMessage/vue-sfc-cli/compare/v1.12.0...v1.13.0) (2020-11-13)
+
+
+### Features
+
+* 生成 .d.ts 和 修改默认分支为 main ([#122](https://github.com/FEMessage/vue-sfc-cli/issues/122)) ([15c209d](https://github.com/FEMessage/vue-sfc-cli/commit/15c209d))
+
+
+
 ## [1.12.0](https://github.com/FEMessage/vue-sfc-cli/compare/v1.11.6...v1.12.0) (2020-08-13)
 
 
