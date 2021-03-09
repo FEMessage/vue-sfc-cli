@@ -23,6 +23,8 @@ const config = {
       }
     }),
     babel({
+      // according to the issue, using .babelrc.js can ignore plugins option
+      // https://github.com/rollup/plugins/issues/381
       babelHelpers: 'runtime',
       extensions: ['.js', '.jsx', '.es6', '.es', '.mjs', '.vue'],
       exclude: 'node_modules/**'
