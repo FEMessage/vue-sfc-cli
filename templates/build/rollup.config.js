@@ -4,6 +4,7 @@ import babel from '@rollup/plugin-babel'
 import commonjs from '@rollup/plugin-commonjs'
 import {terser} from 'rollup-plugin-terser'
 import minimist from 'minimist'
+// import css from 'rollup-plugin-css-only'
 
 const argv = minimist(process.argv.slice(2))
 
@@ -15,8 +16,12 @@ const config = {
   },
   plugins: [
     commonjs(),
+    // https://rollup-plugin-vue.vuejs.org/examples.html#extract-css
+    // css({
+    //   output: '{{componentNamePascal}}',
+    // }),
     vue({
-      css: true,
+      // css: false,
       compileTemplate: true,
       style: {
         postcssPlugins: [require('autoprefixer')]
