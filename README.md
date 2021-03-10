@@ -6,7 +6,7 @@
 [![NPM License](https://badgen.net/npm/license/vue-sfc-cli)](https://github.com/FEMessage/vue-sfc-cli/blob/master/LICENSE)
 [![Automated Release Notes by gren](https://img.shields.io/badge/%F0%9F%A4%96-release%20notes-00B2EE.svg)](https://github-tools.github.io/github-release-notes/)
 
-vue-sfc-cli is a powerful tool for developing vue single-file component. 
+vue-sfc-cli is a powerful tool for developing vue single-file component.
 
 It makes writing docs and demo easily, integrated with an automated github workflow, and is always ready to publish to npm with best practices.
 
@@ -52,7 +52,7 @@ However, you need to execute commands as following, otherwise the commit hook wi
 ```sh
 npx vue-sfc-cli
 
-# git init must run before yarn 
+# git init must run before yarn
 git init
 
 yarn
@@ -119,10 +119,18 @@ npx vue-sfc-cli -u --files .babelrc.js,.eslintrc.js
 
 `--test`
 
-Generate a component template for testing, commonly used in CI .
+Generate a component template for testing, commonly used in CI.
 
 ```
 npx vue-sfc-cli --test
+```
+
+`-o`, `--output`
+
+Generate a component template in the specific output dir.
+
+```
+npx vue-sfc-cli --output ./outDir
 ```
 
 `--name`, `--owner`
