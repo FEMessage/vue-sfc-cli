@@ -119,10 +119,18 @@ npx vue-sfc-cli -u --files .babelrc.js,.eslintrc.js
 
 `--test`
 
-Generate a component template for testing, commonly used in CI .
+Generate a component template for testing, commonly used in CI.
 
 ```
 npx vue-sfc-cli --test
+```
+
+`-o`, `--output`
+
+Generate a component template in the specific output dir.
+
+```
+npx vue-sfc-cli --output ./outDir
 ```
 
 `--name`, `--owner`

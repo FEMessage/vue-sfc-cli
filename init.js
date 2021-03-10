@@ -58,7 +58,7 @@ if (!ownerName) {
 }
 
 const componentName = kebabcasify(npmName)
-const outDir = path.join(process.cwd(), componentName)
+const outDir = path.join(getOutputDir(), componentName)
 
 const fileActions = new FileActions({
   argv,
@@ -88,4 +88,9 @@ if (!isUpgrade()) {
 
 if (isUpgrade()) {
   fileActions.upgrade()
+}
+
+function getOutputDir() {
+  let output = argv.get('output')
+  return output ? path.resolve(output) : process.cwd()
 }
