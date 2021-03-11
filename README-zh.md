@@ -50,7 +50,7 @@ Node.js 8.x
 
 ### Windows
 
-不建议在Windows下生成组件, 因为.sh可能没有执行权限。 
+不建议在Windows下生成组件, 因为.sh可能没有执行权限。
 
 ## 使用教程
 
@@ -102,12 +102,20 @@ npx vue-sfc-cli -u
 npx vue-sfc-cli -u --files .babelrc.js,.eslintrc.js
 ```
 
-`--test` 
+`--test`
 
 生成一个测试的组件模板，常用于ci环境测试。
 
 ```
 npx vue-sfc-cli --test
+```
+
+`-o`, `--output`
+
+在指定的目录生成组件模板。
+
+```
+npx vue-sfc-cli --output ./outDir
 ```
 
 `--name`, `--owner`
@@ -122,7 +130,7 @@ npx vue-sfc-cli --name log-viewer --owner FEMessage
 
 在docs目录下，新建 `md` 文件，建议命名同样是kebab-case
 
-以上传组件[upload-to-ali](https://github.com/FEMessage/upload-to-ali)的 docs/draggable.md 文档为例 
+以上传组件[upload-to-ali](https://github.com/FEMessage/upload-to-ali)的 docs/draggable.md 文档为例
 
 ```
 拖拽排序示例
@@ -218,7 +226,7 @@ selectFiles() {
 
 ![image.png](https://cdn.nlark.com/yuque/0/2019/png/160590/1562220837322-f67bca09-e910-47e8-aa74-32cde527a4c8.png?x-oss-process=image/resize,w_1492)
 
-### 引入第三方库 
+### 引入第三方库
 
 以[Element-UI](https://element.eleme.io/)为例
 
@@ -243,12 +251,12 @@ module.exports = {
   require: [
     './styleguide/element.js'
   ]
-} 
+}
 ```
 
 ### 环境变量
 
-如果需要使用环境变量，推荐使用 `dotenv` 
+如果需要使用环境变量，推荐使用 `dotenv`
 
 ```
 yarn add dotenv --dev

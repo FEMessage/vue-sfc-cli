@@ -6,7 +6,7 @@
 [![NPM License](https://badgen.net/npm/license/vue-sfc-cli)](https://github.com/FEMessage/vue-sfc-cli/blob/master/LICENSE)
 [![Automated Release Notes by gren](https://img.shields.io/badge/%F0%9F%A4%96-release%20notes-00B2EE.svg)](https://github-tools.github.io/github-release-notes/)
 
-vue-sfc-cli is a powerful tool for developing vue single-file component. 
+vue-sfc-cli is a powerful tool for developing vue single-file component.
 
 It makes writing docs and demo easily, integrated with an automated github workflow, and is always ready to publish to npm with best practices.
 
@@ -52,7 +52,7 @@ However, you need to execute commands as following, otherwise the commit hook wi
 ```sh
 npx vue-sfc-cli
 
-# git init must run before yarn 
+# git init must run before yarn
 git init
 
 yarn
@@ -119,10 +119,18 @@ npx vue-sfc-cli -u --files .babelrc.js,.eslintrc.js
 
 `--test`
 
-Generate a component template for testing, commonly used in CI .
+Generate a component template for testing, commonly used in CI.
 
 ```
 npx vue-sfc-cli --test
+```
+
+`-o`, `--output`
+
+Generate a component template in the specific output dir.
+
+```
+npx vue-sfc-cli --output ./outDir
 ```
 
 `--name`, `--owner`
@@ -258,6 +266,67 @@ module.exports = {
     './styleguide/element.js'
   ]
 }
+```
+
+if you need bundle in element components, you may refer the following code
+
+```js
+// rollup.config.js
+import vue from 'rollup-plugin-vue'
+import babel from '@rollup/plugin-babel'
+import commonjs from '@rollup/plugin-commonjs'
+import {terser} from 'rollup-plugin-terser'
+import {nodeResolve} from '@rollup/plugin-node-resolve'
+import json from '@rollup/plugin-json'
+import css from 'rollup-plugin-css-only'
+import copy from 'rollup-plugin-copy'
+import minimist from 'minimist'
+
+const argv = minimist(process.argv.slice(2))
+
+const config = {
+  input: 'src/index.js',
+  output: {
+    name: 'MyComponent',
+    exports: 'named'
+  },
+  external: ['vue', 'vuex', 'axios', 'js-cookie', 'vue-clamp'],
+  plugins: [
+    json(),
+    nodeResolve({extensions: ['.js', '.jsx', '.es6', '.es', '.mjs', '.vue']}),
+    commonjs(),
+    css({
+      output: 'index.css',
+    }),
+    vue({
+      css: false,
+      compileTemplate: true,
+      style: {
+        postcssPlugins: [require('autoprefixer')]
+      }
+    }),
+    babel({
+      babelHelpers: 'runtime',
+      extensions: ['.js', '.jsx', '.es6', '.es', '.mjs', '.vue'],
+      exclude: 'node_modules/**'
+    }),
+    copy({
+      targets: [
+        {
+          src: 'node_modules/element-ui/lib/theme-chalk/fonts/**/*',
+          dest: 'dist/dist/fonts'
+        }
+      ]
+    })
+  ]
+}
+
+// Only minify browser (iife) version
+if (argv.format === 'iife') {
+  config.plugins.push(terser())
+}
+
+export default config
 ```
 
 ### Environment variable
