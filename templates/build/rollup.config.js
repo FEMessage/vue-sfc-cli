@@ -18,7 +18,7 @@ const config = {
     commonjs(),
     // https://rollup-plugin-vue.vuejs.org/examples.html#extract-css
     // css({
-    //   output: '{{componentNamePascal}}',
+    //   output: 'index.css',
     // }),
     vue({
       // css: false,
