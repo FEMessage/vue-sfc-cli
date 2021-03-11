@@ -1,7 +1,7 @@
 {
   "name": "vue-sfc-cli",
   "description": "Quickly generate redistributable vue sfc components",
-  "version": "1.13.0",
+  "version": "1.14.0",
   "author": "Michael Dodge",
   "contributors": [
     "https://github.com/FEMessage"
